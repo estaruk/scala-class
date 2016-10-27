@@ -67,14 +67,19 @@ object DatabaseQueriesAndUpdates {
 
 
   // Task 2a
-  // type DatabaseReader[A] = ???
+  type DatabaseReader[A] = Reader[ Database, A ]
 
   // Task 2b
-  // def findUsername(userId: Int): ??? = ???
+  def findUsername(userId: Int): DatabaseReader[String] = {
+    Reader( (v : Database) => v.users(userId) )
+  }
 
 
   // Task 2c
-  // def findUserId(username: String): ??? = ???
+  def findUserId(username: String): DatabaseReader[Int] = {
+//ms filterKeys p 
+// A map view containing only those mappings in ms where the key satisfies predicate p.
+  }
 
   // Task 2d
   // def userExists(username: String): ??? = ???

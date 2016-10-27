@@ -1,8 +1,9 @@
 package com.datascience.education.tutorial.lecture3
 
 import scala.concurrent._
-
 import scala.concurrent.ExecutionContext.Implicits.global
+import cats._, cats.data._, cats.instances.all._
+
 
 object AsynchronousFactorial {
 
@@ -44,14 +45,21 @@ import cats.syntax.applicative._
 import cats.syntax.writer._
 import cats.data.Writer
 
-object FactorialWriter {
+object FactorialWriter{
 
   // Task (1a)
-
-  // type Logged[A] = ???
+  // should contain multiple log String s, and a single value A
+  type Logged[A] = Writer[ List[String],A ]
 
   // Task (1b)
-  // def factorial(n: Int): ??? = ???
+  //def factorial(n: Int): Logged[_] = {
+//    val fact = if (n==0) 1 else n*factorial(n-1)
+    
+//    Thread.sleep(500)
+    //Logged[$fact]
+
+    //fact
+  //}
 
 
   // Task 1c
